@@ -17,7 +17,7 @@ class AgentsComponent extends Component
      */
     public function __construct()
     {
-        $response = Http::get('http://127.0.0.1:8001/api/vehicles/latest-stock');
+        $response = Http::get(env('API_URL') . '/api/vehicles/latest-stock');
 
         if ($response->successful()) {
             // Obter os dados dos veículos e garantir que as fotos estejam acessíveis
