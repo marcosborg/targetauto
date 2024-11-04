@@ -19,11 +19,11 @@ class SearchSectionComponent extends Component
      */
     public function __construct()
     {
-        $this->brands = Http::get('http://127.0.0.1:8001/api/brands')->json() ?? [];
+        $this->brands = Http::get(env('API_URL') . '/api/brands')->json() ?? [];
         $this->car_models = [];
         if (session()->has('brand_id')) {
             $this->brand_id = session()->get('brand_id');
-            $this->car_models = Http::get('http://127.0.0.1:8001/api/car-models/' . $this->brand_id)->json() ?? [];
+            $this->car_models = Http::get(env('API_URL') . '/api/car-models/' . $this->brand_id)->json() ?? [];
         }
     }
 
